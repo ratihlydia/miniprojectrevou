@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Company Profile</title>
+    <link rel="stylesheet" href="miniprojectrevou.css">
+</head>
+<body>
+    <header class="header-wrapper">
+        <img src="revou.png" alt="revoU Logo" class="logo"> 
+        <div class="nav-bar">
+            <button>Home</button>
+            <button>My Profile</button>
+            <button>Portofolio</button>
+            <button>Message Us</button>
+        </div> 
+    </header>
+
+    <!-- <div id="hero" class="hero"> -->
+        <h1>Hi <span id="nama"></span>. Welcome To Website!</h1>
+
+        <!-- <script>
+            var name = prompt("masukkan nama kamu");
+            var element = document.getElementById("nama").innerText = name;
+        </script> -->
+
+        <h2>Ini adalah website latihan pertama</h2>  
+    </div>
+
+    <div>
+        <img class="img-slideshow"
+        src="photo 1.jpeg">
+        <img class="img-slideshow"
+        src="photo 2.jpeg">
+        <img class="img-slideshow"
+        src="photo 3.jpg">
+        <button onclick="plusDivs(-1)">Previous</button>
+        <button onclick="plusDivs(1)">Next</button>
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n)
+        }
+
+        function showDivs(n) {
+            var i;
+            var imglist = document.getElementsByClassName("img-slideshow");
+            if (n > imglist.length) {slideIndex = 1}
+            else if (n < 1) slideIndex = imglist.length;
+
+            for (i = 0; i < imglist.length; i++) {
+                imglist[i].style.display = "none";
+            }
+
+            imglist[slideIndex-1].style.display = "block";
+        }
+
+        setInterval(() => {
+            plusDivs(1);
+        }, 1000);
+
+    </script>
+
+    <div id="headquarters-section">
+        <h1>Headquarters</h1>
+        <div class="wrapper">
+            <div class="headquarters-image-container">
+                <div class="headquarters-image"></div>
+                </p>Jakarta</p>
+            </div>
+            <div class="headquarters-image-container">
+                <div class="headquarters-image"></div>
+                </p>Bandung</p>
+            </div>
+            <div class="headquarters-image-container">
+                <div class="headquarters-image"></div>
+                </p>Surabaya</p>
+            </div>
+        </div>
+    </div>
+
+    <h1>Message Us</h1>
+    <div class="container">
+        <div class="form-container">
+            <form name="message-us" onsubmit="return validateForm()">
+                <table>
+                    <tr>
+                        <td>Nama</td>
+                        <td>:</td>
+                        <td><input type="text" name="full-name"></td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Lahir</td>
+                        <td>:</td>
+                        <td><input type="date" name="birth-date"> </td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Kelamin</td>
+                        <td>:</td>
+                        <td><input type="radio" name="gender" value="Laki-Laki">Laki-Laki
+                            <input type="radio" name="gender" value="Perempuan">Perempuan
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pesan</td>
+                        <td>:</td>
+                        <td><textarea name="messages"></textarea></td>
+                    </tr>
+                </table>
+                <input type="submit" class = submit value="Submit"/>
+            </form>
+
+            <script>
+                function validateForm() {
+                    var name = document.forms['message-us']['full-name'].value;
+                    var date = document.forms['message-us']['birth-date'].value;
+                    var gender = document.forms['message-us']['gender'].value;
+                    var messages = document.forms['message-us']['messages'].value;
+
+                    if(name == "" || date == "" || gender == "" || messages == "") {
+                        alert("tidak boleh kosong")
+                        return;
+                    }
+
+                    document.getElementById("sender-full-name").innerText = name;
+                    document.getElementById("sender-birth-date").innerText = date;
+                    document.getElementById("sender-gender").innerText = gender;
+                    document.getElementById("sender-messages").innerText = messages;
+                    return false;
+                }
+            </script>
+        </div>
+    
+        <div class="output-container">
+            <div id="output">
+                <p>Nama : <span id="sender-full-name"></p>
+                <p>Tanggal Lahir : <span id="sender-birth-date"></span></p>
+                <p>Jenis Kelamin : <span id="sender-gender"></span></p>
+                <p>Pesan : <span id="sender-messages"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Created By RevoU</p>
+    </footer>
+
+</body>
+</html>
